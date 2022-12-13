@@ -1,272 +1,333 @@
-# JavaScript basic
+# JavaScript documentation
 
-### 1.1 Number methods
+## 1.1 Introduction to Javascript
 
-```JavaScript
-// number to string - tostring()
+- A programming language for web.
+- it can be used in front-end and back-end
 
-let num1 = 25;
-num1 = toString(num1);
-console.log(typeof(num1));
+## 1.2 Output and comment
 
-// string to number - Number(), parseInt(), parseFloat()
-let num2 = "88";
-num2 = Number(num2);
-console.log(typeof(num2));
-
-// toFixed()
-let num3 = 22.83729;
-console.log(num3.toFixed(2));
-
-// toPrecision
-console.log(num3.toPrecision(4));
-```
-
-### 1.2 how to add or concatenate strings
+- Writing into an HTML element, using `innerHTML`
+- Writing into the HTML output using `document.write()`
+- Writing into the browser console, using `console.log()`
 
 ```JavaScript
-// how to add or concatenate strings
+// single line comment
+document.write("Welcome to JavaScript");
+document.write("<h1>Welcome to JavaScript</h1>");
+console.log("Hello programmer");
 
-let firstName = "Maruf";
-let lastName = "Akash";
-let age = 22;
-let fullName = firstName + " " + lastName;
-
-console.log("My name is " + fullName + "." + "I am " + age + " " + "years old.");
+/*
+This is a multiple line comment.
+In this section nothing to be executed in main file.
+To readable, this is good practice to use coment.
+*/
+alert("welcome to js program");
 ```
 
-### 1.3 Library functions for string
+## 1.3 Tokens
 
-```JavaScript
-// Library functions for string - .length, .charAt(), .toUpperCase(), .toLowerCase(), .concat(), .slice()
+- Keywords: javascript reserved words for specific reasons.
 
-let myName = "Maruf Akash";
-let text1 = "Bangladesh";
-let text2 = " is a beautiful country."
+  - Example - abstract, break, char, double, export, import, try, catch, finally, throw, throws, if, else, switch, case, break, default, continue,for, while, do, var, let, const, class, extends, implements, public, private, protected, new, static, this, true, false, boolean, string, number, function, instanceof
 
-console.log('Number of character : ' + myName.length);
-console.log(text1.charAt(3));
-console.log(text1.toUpperCase());
-console.log(text1.toLowerCase());
-console.log(text1.concat(text2));
-console.log(text1.slice(2,7));
-```
+- puncuators
 
-### 1.4 Arithmetic operator
-```JavaScript
-let num1 = Number(prompt('Enter the first number : '));
-let num2 = Number(prompt('Enter the second number : '));
+  - () round brackets / parentheses
+  - {} curly brackets / braces
+  - [] square brackets / brackets
+  - <> angle brackets / chevrons
 
-let result
+- Data types
+  
+  - JavaScript Datatypes (String, Number, Boolean, Null, Symbol)
+  - The Object Datatype (An object, An array, A date)
 
-// Addition
-result = num1 + num2;
-document.write(num1 + ' + ' + num2 + " : " + result + '<br>');
+    ```JavaScript
+    // Numbers:
+    let length = 16;
+    let weight = 7.5;
 
-// Subtraction
-result = num1 - num2;
-document.write(num1 + ' - ' + num2 + " : " + result + '<br>');
+    // Strings:
+    let color = "Yellow";
+    let lastName = "Johnson";
 
-// Multipication
-result = num1 * num2;
-document.write(num1 + ' * ' + num2 + " : " + result + '<br>');
+    // Booleans
+    let x = true;
+    let y = false;
 
-// Division
-result = num1 / num2;
-document.write(num1 + ' / ' + num2 + " : " + result + '<br>');
+    // Object:
+    const person = {firstName:"John", lastName:"Doe"};
 
-// Modulus
-result = num1 % num2;
-document.write(num1 + ' % ' + num2 + " : " + result + '<br>');
-```
+    // Array object:
+    const cars = ["Saab", "Volvo", "BMW"];
 
-### 1.5 Area of triangle
-```JavaScript
-// Area of triangle - (base * height * 0.5)
+    // Date object:
+    const date = new Date("2022-03-25");
+    ```
 
-let base = parseFloat(prompt("Enter the base of triangle : "));
-let height = parseFloat(prompt("Enter the height of triangle : "));
+- Variables
 
-let area = (0.5 * base * height).toFixed(3);
+  - Varibale is a placeholder for storing data.   
 
-console.log("Area of the triangle : " + area);
-```
+    ```JavaScript
+    let name = "Maruf Akash";
+    var price = 129.66
+    const title = "Learning Point"
+    ```
 
-### 1.6 Conditional control statement - if, else if, else, switch
+  - variables naming rules (collected from w3school)
+    - The general rules for constructing names for variables (unique identifiers) are:
+    - Names can contain letters, digits, underscores, and dollar signs.
+    - Names must begin with a letter
+    - Names can also begin with $ and _ (but we will not use it in this tutorial)
+    - Names are case sensitive (y and Y are different variables)
+    - Reserved words (like JavaScript keywords) cannot be used as names
 
-- switch
+  - 3 most popular variable naming style
+    - Underscore: first_name, last_name
+    - Upper Camel Case (Pascal Case): FirstName, LastName
+    - Lower Camel Case: firstName, lastName
+ 
+  - var vs let vs const
+    - 2 important things: reassign, scope - block, function, global
+    - var variable can be reassigned and function scoped.
+      ```JavaScript
+      var name = "alex";
+      name = "robin"; // reassign allowed for var variables
 
-```Javascript
-// Vowel Consonent using switch
+      if (true) {
+        var age = 32;
+      }
 
-let letter = prompt("Enter any letter : ");
+      console.log(name);
+      console.log(age); //  allowed as var variable is function scoped
+      ```
+    - let variable can be reassigned but blocked (a set of curly braces) scoped.
+        
+        ```JavaScript
+        let name = "alex";
+        name = "robin"; // reassign allowed for let variables
 
-letter = letter.toLowerCase();
-
-switch(letter) {
-    case 'a':
-    case 'e':
-    case 'i':
-    case 'o':
-    case 'u':
-        console.log("Vowel");
-        break;
-    default:
-        console.log("Consonent");
-}
-```
-
-- if else
-
-```JavaScript
-// letter grade using if else
-
-var marks = Number(prompt("Enter your marks : "));
-
-if(marks > 100 || marks < 0){
-    console.log("Unvalid marks");
-}else if(marks >= 80 && marks <= 100){
-    console.log("A+");
-}else if(marks >= 70 && marks <= 79){
-    console.log("A");
-}else if(marks >= 60 && marks <= 69){
-    console.log("A-");
-}else if(marks >= 50 && marks <= 59){
-    console.log("B");
-}else if(marks >= 40 && marks <= 49){
-    console.log("C");
-}else if(marks >= 33 && marks <= 39){
-    console.log("D");
-}else if(marks >= 0 && marks < 33){
-    console.log("Fail");
-}else{
-    console.log("Wrong input");
-}
-```
-
-### 1.7 Tranditional function
-
-```JavaScript
-function square(num) {
-    var result = num * num;
-    document.write("Result : " + result + "<br>");
-}
-
-var num = Number(prompt("Enter any number : "));
-square(num);
-```
-
-### 2.1 Array 
-
-- Array Methods
-
-```JavaScript
-let names = ["Maruf", "Sumaya", "Oishi", "Mahabuba", "Urmi"];
-console.log(names);
-
-// Push() - add a new element in the end of array
-names.push("Tanzim","Sayma");
-console.log(names);
-
-// pop() - remove an element in the end of array
-names.pop();
-console.log(names);
-
-// shift() -remove an element in the front of array
-names.shift();
-console.log(names);
-
-// unshift() - add a new element in the front of array
-names.unshift("Akash");
-console.log(names);
-
-// splice(start, delete, add)
-names.splice(2,0,"Monisha","Riya");
-console.log(names);
-
-// sort()
-console.log(names.sort());
-
-// reverse()
-console.log(names.reverse());
-
-// numbers sorting
-let numbers = [6,9,0,72,1,-2];
-numbers = numbers.sort((a,b) => a-b);
-console.log(numbers);
-```
-
-- One Diementional Array
-```JavaScript
-// 1D Array - Create a function called highestScore that will receive a 1D array called scores & return the highest score
-
-function highestScore(scores) {
-    let max = scores[0];
-    for(let i=1; i<scores.length; i++){
-        if(max < scores[i]){
-            max = scores[i];
+        if (true) {
+            let age = 32;
         }
+
+        console.log(name);
+        console.log(age); // not allowed as let variable is block scoped
+        ```
+    
+    - const variable can not be reassigned but blocked (a set of curly braces) scoped.
+
+      ```JavaScript
+      const name = "alex";
+      name = "robin"; // reassign is not allowed for const variables
+
+      if (true) {
+        const age = 32;
+      }
+
+      console.log(name);
+      console.log(age); //  not allowed as const variable is blocked scoped
+      ```
+
+- Operators
+
+  - Arithmetic operators : +, -, *, /, %
+  - Assignment operators: +=, -=, *=, /=, %=
+  - Unary operators: ++, --
+  - Comparision / Relational operators: >, >=, <, <=, ==, !=, ===, !==
+  - Logical operators: &&, ||, !
+  - Ternary Operator: `condition ? expression1 : expression2;`
+  - Bitwise operators: &, |, ^, ~, >>, <<
+
+## 1.4 Prompt & Data Type conversion
+
+- prompt() can help us to take user input. Though it is not recommended but for testing purpose we can use it instead of a form.
+- Number(), toString(), pasreInt(), parseFloat(), parseDouble()
+
+## 1.5 Math methods
+
+- max(), min(), sqrt(), pow(), ceil(), floor(), round(), random()
+
+    ```JavaScript
+    console.log(Math.max(20, 30));
+    console.log(Math.min(20, 30));
+    console.log(Math.floor(3.4));
+    console.log(Math.ceil(3.4));
+    console.log(Math.round(3.4));
+    console.log(Math.random());
+
+    const randomNumber = Math.floor(Math.random() * 5) + 1;
+    ```
+
+- Traditional function vs Arrow function
+  ```JavaScript
+  // demo1 - must use parenthesis for no parameters, but for one parameter its optional
+  function display1() {
+    console.log("I am display 1");
+  }
+
+  const display2 = () => {
+    console.log("I am display 2");
+  };
+
+  display1();
+  display2();
+
+  // demo2 - no need to use curly braces if returning or dealing with single statement
+  function display3() {
+    console.log("I am display 3");
+  }
+
+  const display4 = () => console.log("I am display 4");
+
+  display3();
+  display4();
+
+  // returning value in arrow function - no need to use curly braces if returning or dealing with single statement
+  function display5() {
+    return "I am display 5";
+  }
+
+  const display6 = () => "I am display 6";
+
+  console.log(display5());
+  console.log(display6());
+
+  // parameters in arrow function
+  function add1(x, y) {
+    return x + y;
+  }
+
+  const add2 = (x, y) => x + y;
+
+  console.log(add1(10, 20));
+  console.log(add2(20, 30));
+  ```
+
+## 1.6 Control statement
+
+- Conditional control statement: if, else if, else, switch
+
+  - if, else if, else related programss
+    - positive / negative / zero program
+      ```JavaScript
+      let num1 = parseInt(prompt("Enter first numebr : "));
+      let num2 = parseInt(prompt("Enter second numebr : "));
+
+      if(num1 > num2){
+        console.log("Large Number is : " + num1);
+      } else if(num2 > num1){
+        console.log("Large Number is : " + num2);
+      } else{
+        console.log("Equal numbers");
+      }
+      ```
+
+    - Vowel / consonant program
+      ```JavaScript
+      let letter = prompt("Enter a letter : ");
+
+      // convert any uppercase input into lower cause we set only lowercase letter in condition
+      letter = letter.toLowerCase();
+
+      // Now check the condition
+      if(letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter =='u'){
+        console.log('Vowel');
+      } else{
+        console.log('Consonant');
+      }
+      ```
+
+  - switch
+    - 4 keywords: switch, case, break, default
+      ```JavaScript
+      // Vowel Consonent using switch
+      let letter = prompt("Enter any letter : ");
+      letter = letter.toLowerCase();
+
+      switch(letter) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            console.log("Vowel");
+            break;
+        default:
+            console.log("Consonent");
+      }
+      ```
+
+- Loop control statement: for, while, do while loop
+
+  - for loop
+    ```JavaScript
+    // sum of numbers 1+2+..+10
+    let sum = 0;
+
+    for(let i=1; i<10; i++){
+        sum = sum + i;
     }
-    return max;
-}
 
-// Getting input from the user
-let scores = [];
-for(let i=0; i<5; i++){
-    scores[i] = Number(prompt("Enter the scores : "));
-}
-console.log(scores);
+    console.log("Summation is : " + sum);
+    ```
 
-console.log("Highest score : " + highestScore(scores));
-```
+  - while loop
+    ```Javascript
+    // sum of numbers 1+2+..+10
+    let sum = 0;
 
-- Two Diementional Array
-```JavaScript
-// 2D Array - create a function called highestRunScorer that will receive a 2D array called playersInfo. Based on highest score, return the name of player.
-
-function highestRunScorer(playersInfo) {
-    let highestScorer = playersInfo[0][0];
-    let highestScore = playersInfo[0][1];
-
-    for(let i=0; i<playersInfo.length; i++){
-        if(highestScore < playersInfo[i][1]){
-            highestScore = playersInfo[i][1];
-            highestScorer = playersInfo[i][0];
-        }
+    let i = 1;
+    while(i<10){
+        sum = sum + i;
+        i++;
     }
 
-    return highestScorer;
-}
+    console.log("Summation is : " + sum);
+    ```
+  - do while loop
+    ```Javascript
+    // sum of numbers 1+2+..+10
+    let sum = 0;
 
-let playersInfo =[
-    ["Maruf Akash", 78],
-    ["Gazi Mahabuba", 91],
-    ["Sumaya Islam", 54],
-    ["Urmi Akter", 99],
-    ["Mariya Khan", 88]
-]
+    let i = 1;
+    do{
+        sum = sum + i;
+        i++;
+    }while(i<10)
 
-console.log("Highest Scorer : " + highestRunScorer(playersInfo));
-```
+    console.log("Summation is : " + sum);
+    ```
 
-### 2.2 Object
+## 1.7 Object 
+- object is one type of variable that can store differnt types of variables
 
-```JavaScript
-// how to create an object
-let student1 = {
+  ```JavaScript
+  // declaring objects 
+  const student1 = {
     name: "Maruf Akash",
     age: 22,
-    cgpa: 3.87,
-    language: ["Bangla","English","Hindi"]
-}
+    cgpa: 3.92,
+    language: ["Bangla","English"]
+  }
 
-// printing object
-console.log(student1.name);
-```
+  const student2 = {
+    name: "Gazi Mahabuba",
+    age: 23,
+    cgpa: 3.36,
+    language: ["Hindi","Arbi","English"]
+  }
 
-- Adding a constructor
-```JavaScript
-function student(name, age, cgpa, language){
+  // printing object
+  console.log(student1);
+
+  // printing object property's value
+  console.log(student1.name);
+
+  // adding a constructor
+  function student(name, age, cgpa, language){
     this.name = name;
     this.age = age;
     this.cgpa = cgpa;
@@ -279,56 +340,15 @@ function student(name, age, cgpa, language){
         console.log(this.cgpa);
         console.log(this.language);
     }
-}
+  }
 
-let student1 = new student("Maruf Akash",22,3.87,["Bangla","English","Hindi"]);
-let student2 = new student("Gazi Mahabuba",23,3.99,["Arbi","English","Hindi"]);
-student1.display();
-student2.display();
-```
+  let student1 = new student("Maruf Akash",22,3.87,["Bangla","English","Hindi"]);
+  let student2 = new student("Gazi Mahabuba",23,3.99,["Arbi","English","Hindi"]);
 
-- Math objects - sqrt(), pow(), floor(), ceil(), round(), max(), random()
+  console.log(student1);
+  console.log(student2);
 
-```JavaScript
-console.log(Math.sqrt(4));
-console.log(Math.pow(2,4));
-console.log(Math.floor(6.988));
-console.log(Math.ceil(8.22));
-console.log(Math.round(3.99));
-console.log(Math.max(-2,7,0));
-console.log(Math.floor(Math.random()*5)+1);
-```
+  student1.display();
+  student2.display();
+  ```
 
-- Guessing Game
-```JavaScript
-let numberOfWon = 0;
-let numberOfLost = 0;
-
-for(let i=0; i<5; i++){
-    let randomNumber = (Math.floor(Math.random()*5)) + 1;
-    let guessNumber = Number(prompt("Enter a number from 1 to 5 : "));
-
-    if(guessNumber == randomNumber){
-        console.log("You have won.");
-        numberOfWon++;
-    }else{
-        console.log("You have lost.Random number is : " + randomNumber);
-        numberOfLost++;
-    }
-}
-
-console.log("Number of win : " + numberOfWon);
-console.log("Number of lost : " + numberOfLost);
-```
-
-- Date object and date methods
-
-```JavaScript
-let date = new Date();
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
-
-let currentDate = day + "/" + month + "/" + year;
-document.write("Date : " + currentDate);
-```
